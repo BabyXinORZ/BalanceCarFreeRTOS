@@ -92,7 +92,7 @@ void BSP_init(void)
     buzzer_init(30000, 90);
     //激光IO初始化
     laser_configuration();
-    //定时器6 初始化
+    //定时器6 初始化	
     TIM6_Init(60000, 90);
     //CAN接口初始化
     CAN1_mode_init(CAN_SJW_1tq, CAN_BS2_2tq, CAN_BS1_6tq, 5, CAN_Mode_Normal);

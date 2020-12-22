@@ -29,6 +29,7 @@
 #include "Gimbal_Task.h"
 #include "encoder_task.h"
 #include "wheel_task.h"
+#include "angle_loop_task.h"
 
 #define INS_TASK_PRIO 20
 #define INS_TASK_SIZE 512
@@ -53,6 +54,10 @@ TaskHandle_t ChassisTask_Handler;
 #define Wheel_TASK_PRIO 4
 #define Wheel_STK_SIZE 256
 static TaskHandle_t WheelTask_Handler;
+
+#define Angle_Loop_TASK_PRIO 7
+#define Angle_Loop_STK_SIZE 256
+static TaskHandle_t AngleLoopTask_Handler;
 
 #define START_TASK_PRIO 1
 #define START_STK_SIZE 512
@@ -112,6 +117,14 @@ void start_task(void *pvParameters)
                 (UBaseType_t)Wheel_TASK_PRIO,
                 (TaskHandle_t *)&WheelTask_Handler);
 
+        xTaskCreate((TaskFunction_t)AngleLoopTask,
+                (const char *)"AngleLOOPTask",
+                (uint16_t)Angle_Loop_STK_SIZE,
+                (void *)NULL,
+                (UBaseType_t)Angle_Loop_TASK_PRIO,
+                (TaskHandle_t *)&AngleLoopTask_Handler);
+
+                
     // xTaskCreate((TaskFunction_t)calibrate_task,
     //             (const char *)"CaliTask",
     //             (uint16_t)CALIBRATE_STK_SIZE,

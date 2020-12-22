@@ -75,7 +75,8 @@
                 "${workspaceFolder}\\user\\APP\\start_task",
                 "${workspaceFolder}\\user\\APP\\user_task",
                 "${workspaceFolder}/user/APP/encoder_task",
-                "${workspaceFolder}/user/APP/wheel_task"
+                "${workspaceFolder}/user/APP/wheel_task",
+                "${workspaceFolder}/user/APP/angle_loop_task"
             ],
             "defines": [
                 "STM32F427X",

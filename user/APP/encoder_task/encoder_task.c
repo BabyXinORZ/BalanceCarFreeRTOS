@@ -5,7 +5,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-static fp32 Encoder_velocity[2] = {0.0, 0.0};
+fp32 Encoder_velocity[2] = {0.0, 0.0};
 
 
 void EcoderTask(void *pvParameters){
@@ -13,8 +13,8 @@ void EcoderTask(void *pvParameters){
     // EncoderB_velocity = (fp32*)malloc(sizeof(fp32));
     int16_t countA;
     int16_t countB;
-    int16_t dt_ms = 50;
-    int32_t maxCount = 50;
+    int16_t dt_ms = 10;
+    // int32_t maxCount = 50;
     while (1)
     {
         countA = (int16_t)TIM5->CNT;

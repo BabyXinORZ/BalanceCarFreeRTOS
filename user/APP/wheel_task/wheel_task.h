@@ -3,7 +3,7 @@
 
 extern void WheelTask(void *pvParameters);
 
-
+extern fp32 *getMotorVelTargetsPoint(void);
 
 
 
